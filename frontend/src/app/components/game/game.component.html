@@ -9,36 +9,7 @@
           </mat-button-toggle-group>
         </div>
     <div class = "flex-container">
-        <!-- five lines -->
-        <div class = "word">TEST</div>
-        <div class = "word">TEST</div>
-        <div class = "word">TEST</div>
-        <div class = "word">TEST</div>
-        <div class = "word">TEST</div>
-        <!-- five lines -->
-        <div class = "word">TEST</div>
-        <div class = "word">TEST</div>
-        <div class = "word">TEST</div>
-        <div class = "word">TEST</div>
-        <div class = "word">TEST</div>
-        <!-- five lines -->
-        <div class = "word">TEST</div>
-        <div class = "word">TEST</div>
-        <div class = "word">TEST</div>
-        <div class = "word">TEST</div>
-        <div class = "word">TEST</div>
-        <!-- five lines -->
-        <div class = "word">TEST</div>
-        <div class = "word">TEST</div>
-        <div class = "word">TEST</div>
-        <div class = "word">TEST</div>
-        <div class = "word">TEST</div>
-        <!-- five lines -->
-        <div class = "word">TEST</div>
-        <div class = "word">TEST</div>
-        <div class = "word">TEST</div>
-        <div class = "word">TEST</div>
-        <div class = "word">TEST</div>
+        <div class = "word" *ngFor="let word of words">{{ word?.word | uppercase }} </div>
      </div>
 
      <button mat-raised-button (click) = "nextGame()" class = "nextgame"> Next Game </button>

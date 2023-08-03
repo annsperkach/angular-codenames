@@ -16,11 +16,23 @@ export class SocketioService {
     this.socket.emit('joinGame', { gameId: gameId });
   }
 
+  startGame (gameId: string) {
+    this.socket.emit('startGame', { gameId: gameId });
+  }
+
   receiveJoinedPlayers() {
     return new Observable((observer) => {
       this.socket.on('joinGame', (message) => {
         observer.next(message);
       })
     })
+  }
+
+  receiveStartGame() {
+    return new Observable((observer) => {
+      this.socket.on('startGame', (words) => {
+        observer.next(words);
+      });
+    });
   }
 } 
