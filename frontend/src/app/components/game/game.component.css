@@ -1,0 +1,24 @@
+.game{
+    margin: 5%;
+}
+
+.role{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    line-height: 100px;
+}
+
+.word {
+    flex: 1 0 16%;
+    background-color:aliceblue;
+    border: solid 2px #ddd;
+    text-align: center;
+    margin: 10px;
+}
