@@ -23,6 +23,7 @@ export class GameComponent implements OnInit{
     this.socketioService.connect(this.gameId);
     this.receiveJoinedPlayers();
     this.receiveStartGame();
+    this.receiveGameUpdate();
   }
 
   nextGame () {
@@ -50,6 +51,19 @@ export class GameComponent implements OnInit{
     this.role = 'operative';
     this.words = words;
     console.log(this.words);
+  });
+}
+
+clickWord(word: any) {
+  word.selected = true;
+  this.gameId = this.route.snapshot.paramMap.get('id') || '';
+  this.socketioService.sendGameUpdate(this.gameId, this.words);
+}
+
+receiveGameUpdate() {
+  this.gameId = this.route.snapshot.paramMap.get('id') || '';
+  this.socketioService.receiveGameUpdate(this.gameId).subscribe((words: any) => {
+    this.words = words;
   });
 }
 }
