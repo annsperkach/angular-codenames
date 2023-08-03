@@ -13,4 +13,12 @@ export class GameComponent implements OnInit{
   }
 
   role = "operative";
+
+  nextGame () {
+
+  }
+
+  startGame () {
+    
+  }
 }

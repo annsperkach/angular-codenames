@@ -1,5 +1,8 @@
 <div class = "game">
-    <div class = "role">
+<div class = "center"> 
+<button mat-raised-button (click) = "startGame()"> Start Game </button>
+</div>
+    <div class = "center">
         <mat-button-toggle-group [(value)]="role">
             <mat-button-toggle value="operative">Operative</mat-button-toggle>
             <mat-button-toggle value="spymaster">Spymaster</mat-button-toggle>
@@ -38,5 +41,4 @@
         <div class = "word">TEST</div>
      </div>
 
-     <button mat-raised-button (click) = "nextGame()" class = "nextGame"> Next Game </button>
-</div>
+     <button mat-raised-button (click) = "nextGame()" class = "nextgame"> Next Game </button>

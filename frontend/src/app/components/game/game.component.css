@@ -2,7 +2,7 @@
     margin: 5%;
 }
 
-.role{
+.center{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,4 +21,8 @@
     border: solid 2px #ddd;
     text-align: center;
     margin: 10px;
+}
+
+.nextgame {
+    float: right;
 }
