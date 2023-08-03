@@ -8,17 +8,11 @@ const io  = require('socket.io')(httpServer,{
 io.on("connection", (socket) => {
     console.log("a user connected");
 
-    socket.emit('message', 'Hey I just connected!');
-
-    socket.broadcast.emit('message', "hi this message is sent to everyone except sender");
-
-    io.emit("This is send to everyone");
-
-    socket.join("HERE IS A UNIQUE ID FOR THE ROOM");
-
-    socket.to("UNIQUE ID".emit("message", "THIS MESSAGE WILL BE SEND TO EVERYONE EXCEPT FROM THE SENDER"));
-
-    io.to("UNIQUE ID".emit("message", "THIS MESSAGE WILL BE SEND TO EVERYONE IN THIS ROOM"));
+    socket.on('joinGame', ({gameId}) => {
+        socket.join(gameId);
+        console.log("a player joined the room" + gameId);
+        socket.to(gameId).emit('joinGame', "A player joined the game!");
+    })
 });
 
 const PORT = process.env.PORT || 3000;

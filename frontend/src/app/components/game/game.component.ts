@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { SocketioService } from 'src/services/socketio.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-game',
@@ -7,14 +9,16 @@ import { SocketioService } from 'src/services/socketio.service';
   styleUrls: ['./game.component.css']
 })
 export class GameComponent implements OnInit{
+  gameId: string | undefined ;
+  role = "operative";
 
-  constructor (private socketioService: SocketioService) { }
+  constructor (private socketioService: SocketioService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.socketioService.connect();
+    this.gameId = this.route.snapshot.paramMap.get('id') || '';
+    this.socketioService.connect(this.gameId);
+    this.receiveJoinedPlayers();
   }
-
-  role = "operative";
 
   nextGame () {
 
@@ -22,5 +26,11 @@ export class GameComponent implements OnInit{
 
   startGame () {
     
+  }
+
+  receiveJoinedPlayers() {
+    this.socketioService.receiveJoinedPlayers().subscribe((message) => {
+      console.log(message);
+    });
   }
 }
