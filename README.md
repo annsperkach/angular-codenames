@@ -21,9 +21,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 # Backend
 Run `nodemon` for a dev server.
 
-
-
-
 # User Stories
 
 ```
